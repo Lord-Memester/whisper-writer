@@ -40,11 +40,11 @@ class LLMProcessor:
             self.api_key = KeyringManager.get_api_key("gemini")
             ConfigManager.console_print("Using Gemini API")
         elif self.api_type == 'ollama':
+            self.api_key = 'MemeWasHere'
             ConfigManager.console_print("Using local Ollama installation")
         elif self.api_type == 'groq':
             self.api_key = KeyringManager.get_api_key("groq")
             ConfigManager.console_print("Using Groq API")
-            
         if not self.api_key and self.api_type != 'ollama':
             ConfigManager.console_print(f"Warning: No API key found for {self.api_type}")
             
@@ -285,7 +285,7 @@ class LLMProcessor:
             if hasattr(models_response, 'models'):
                 available_models = []
                 for model_info in models_response.models:
-                    model_name = getattr(model_info, 'model', '').replace(':latest', '')
+                    model_name = getattr(model_info, 'model', '')#.replace(':latest', '') # Commented out because every other program that looks for Ollama models that I've used keeps the ":latest" intact in the model name. Also, why change the raw output when you simply don't need to? ~ Meme
                     details = getattr(model_info, 'details', None)
                     
                     available_models.append(model_name)

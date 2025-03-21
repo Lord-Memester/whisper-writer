@@ -140,3 +140,4 @@ config.yaml
 *.cfg
 *.db
 /keyring/*
+dictationRunner.bat
