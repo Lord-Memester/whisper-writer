@@ -40,7 +40,7 @@ class LLMProcessor:
             self.api_key = KeyringManager.get_api_key("gemini")
             ConfigManager.console_print("Using Gemini API")
         elif self.api_type == 'ollama':
-            self.api_key = 'MemeWasHere'
+            self.api_key = 'null'
             ConfigManager.console_print("Using local Ollama installation")
         elif self.api_type == 'groq':
             self.api_key = KeyringManager.get_api_key("groq")
