@@ -285,7 +285,7 @@ class LLMProcessor:
             if hasattr(models_response, 'models'):
                 available_models = []
                 for model_info in models_response.models:
-                    model_name = getattr(model_info, 'model', '')#.replace(':latest', '') # Commented out because every other program that looks for Ollama models that I've used keeps the ":latest" intact in the model name. Also, why change the raw output when you simply don't need to? ~ Meme
+                    model_name = getattr(model_info, 'model', '').replace(':latest', '')
                     details = getattr(model_info, 'details', None)
                     
                     available_models.append(model_name)
